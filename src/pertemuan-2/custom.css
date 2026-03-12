@@ -1,0 +1,71 @@
+/* Import font biar makin estetik */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+    /* Background pakai gradasi pastel biar seger */
+    background: linear-gradient(135deg, #ffe9f3 0%, #e0f2fe 100%);
+    font-family: 'Quicksand', sans-serif; /* Font bulat = auto kyut */
+    color: #5d5d5d;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Container utama dibikin kayak awan/marshmallow */
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 30px; /* Sudut super bulat */
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3); /* Shadow warna pink soft */
+    border: 3px solid #ffffff;
+    transition: transform 0.3s ease; /* Biar ada efek pas disentuh */
+}
+
+/* Efek hover biar interaktif */
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Header utama dengan warna strawberry */
+h1 {
+    color: #ff85a1;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #ffe4e9;
+}
+
+/* Paragraf */
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Garis pemisah yang nggak kaku (putus-putus) */
+hr {
+    border: none;
+    border-top: 3px dashed #ffc2d1;
+    margin: 20px auto;
+    width: 50%;
+}
+
+/* Greeting / Small text */
+small {
+    display: block;
+    font-style: italic;
+    text-align: center;
+    color: #ff9fb2;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Tambahan: Bikin icon atau emoji di depan h1 kalau mau */
+h1::before {
+    content: '✨ ';
+}
+h1::after {
+    content: ' ✨';
+}
