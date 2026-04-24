@@ -128,10 +128,54 @@ export default function Dashboard() {
 
       </div>
 
-      {/* Recent Orders */}
+      {/* Recent Orders Table */}
       <div className="bg-white rounded-2xl shadow-lg p-6 border border-orange-100">
-        <h2 className="text-xl font-bold mb-4">Recent Orders</h2>
-        {/* tabel kamu tetap sama */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold text-gray-800">Recent Orders</h2>
+          <button className="text-orange-500 hover:text-orange-600 text-sm font-semibold">
+            View All →
+          </button>
+        </div>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-gray-50 border-b-2 border-gray-200">
+              <tr>
+                <th className="text-left p-3 text-gray-600 font-semibold">Order ID</th>
+                <th className="text-left p-3 text-gray-600 font-semibold">Customer</th>
+                <th className="text-left p-3 text-gray-600 font-semibold">Items</th>
+                <th className="text-left p-3 text-gray-600 font-semibold">Total</th>
+                <th className="text-left p-3 text-gray-600 font-semibold">Status</th>
+                <th className="text-left p-3 text-gray-600 font-semibold">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentOrders.map((order, idx) => (
+                <tr key={idx} className="border-b border-gray-100 hover:bg-orange-50 transition-colors">
+                  <td className="p-3 font-medium text-gray-800">{order.id}</td>
+                  <td className="p-3 text-gray-600">{order.customer}</td>
+                  <td className="p-3 text-gray-600">{order.items}</td>
+                  <td className="p-3 font-semibold text-gray-800">{order.total}</td>
+                  <td className="p-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusStyle(order.status)}`}>
+                      {order.status}
+                    </span>
+                  </td>
+                  <td className="p-3">
+                    {order.rating ? (
+                      <div className="flex items-center gap-1">
+                        <FaStar className="text-yellow-400" />
+                        <span className="text-gray-700">{order.rating}</span>
+                      </div>
+                    ) : (
+                      <span className="text-gray-400 text-sm">-</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>

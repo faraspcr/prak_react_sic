@@ -43,16 +43,22 @@ export default function Header() {
           <FaSun />
         </div>
 
-        {/* Profile */}
+        {/* Profile - Updated with local image */}
         <div className="flex items-center space-x-3 border-l pl-4 border-orange-200">
           <div className="text-right">
             <span className="text-xs text-orange-500">Welcome back,</span>
             <p className="font-bold text-gray-700">Faras Zakia</p>
           </div>
           <div className="relative group">
+            {/* Ganti dengan gambar lokal dari folder public/img/loopy.png */}
             <img
-              src="https://avatar.iran.liara.run/public/50"
+              src="/img/loopy.jpg"
+              alt="Faras Zakia"
               className="w-11 h-11 rounded-full border-2 border-orange-400 shadow-md cursor-pointer group-hover:rotate-6 transition-transform duration-200 object-cover"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://avatar.iran.liara.run/public/50";
+              }}
             />
             <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
           </div>
@@ -62,4 +68,3 @@ export default function Header() {
     </div>
   );
 }
-

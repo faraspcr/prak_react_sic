@@ -1,5 +1,4 @@
-import { FaHome, FaClipboardList, FaUsers, FaChartPie, FaEnvelope,FaCog,
-} from "react-icons/fa";
+import { FaHome, FaClipboardList, FaUsers, FaChartPie, FaEnvelope, FaCog, FaExclamationTriangle, FaExclamationCircle, FaBan } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -12,6 +11,13 @@ export default function Sidebar() {
     { name: "Settings", icon: <FaCog />, to: "/settings" },
   ];
 
+  // Menu Error khusus
+  const errorMenus = [
+    { name: "Error 400", icon: <FaExclamationTriangle />, to: "/error/400" },
+    { name: "Error 401", icon: <FaExclamationCircle />, to: "/error/401" },
+    { name: "Error 403", icon: <FaBan />, to: "/error/403" },
+    
+  ];
   
   const menuClass = ({ isActive }) =>
     `flex items-center space-x-3 cursor-pointer rounded-xl p-3 font-medium transition-all duration-200 ${
@@ -51,6 +57,24 @@ export default function Sidebar() {
                     {item.badge}
                   </span>
                 )}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Menu Error Section */}
+      <div className="mt-6 px-4">
+        <p className="text-xs font-bold text-red-400 uppercase mb-4">
+          ERROR PAGES
+        </p>
+
+        <ul className="space-y-2">
+          {errorMenus.map((item, idx) => (
+            <li key={idx}>
+              <NavLink to={item.to} className={menuClass}>
+                <span className="text-lg">{item.icon}</span>
+                <span className="flex-1">{item.name}</span>
               </NavLink>
             </li>
           ))}

@@ -1,10 +1,16 @@
-// src/pages/NotFound.jsx
+// src/component/ErrorPage.jsx
 import { useNavigate } from "react-router-dom";
-
-export default function NotFound() {
+export default function ErrorPage({ errorCode, description, image }) {
   const navigate = useNavigate();
-  const errorCode = 404;
-
+  const getTitle = (code) => {
+    switch (Number(code)) {
+      case 400: return "Something Went Wrong";
+      case 401: return "Authentication Required";
+      case 403: return "Access Forbidden";
+      case 404: return "Page Not Found";
+      default: return "Error";
+    }
+  };
   return (
     <div className="relative min-h-screen overflow-hidden">
       
@@ -20,9 +26,8 @@ export default function NotFound() {
         style={{ backgroundImage: "url('/img/Vector 7.png')" }}
       ></div>
 
-      {/* Content Layer */}
-          <div className="relative z-20 container mx-auto px-40 py-45 min-h-screen flex items-start justify-center">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap- w-full max-w-6xl mx-auto">
+     <div className="relative z-20 container mx-auto px-40 py-45 min-h-screen flex items-start justify-center">
+     <div className="flex flex-col lg:flex-row items-center justify-center gap- w-full max-w-6xl mx-auto">
           
           {/* Bagian Kiri - Teks */}
           <div className="lg:w-1/2 text-left">
@@ -31,15 +36,14 @@ export default function NotFound() {
             </p>
 
             <h1 className="text-[180px] md:text-[220px] font-bold text-gray-800 leading-none">
-              404
+              {errorCode}
             </h1>
-
             <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mt-4 mb-6">
-              Page Not Found
+              {getTitle(errorCode)}
             </h2>
 
             <p className="text-gray-500 text-base max-w-md leading-relaxed mb-8">
-              Page Not Found - The page you are looking for does not exist.
+              {description}
             </p>
 
             <button
@@ -53,21 +57,20 @@ export default function NotFound() {
           {/* Bagian Kanan - Gambar */}
           <div className="lg:w-1/2 flex justify-center">
             <img 
-              src="/img/404.png" 
-              alt="Error 404"
+              src={image} 
+              alt={`Error ${errorCode}`}
               className="w-[500px] md:w-[600px] h-auto object-contain"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "https://via.placeholder.com/500?text=404";
+                e.target.src = `/img/${errorCode}.png`;
               }}
             />
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="absolute bottom-35 left-0 right-0 text-center">
+        <div className="absolute bottom-40 left-0 right-0 text-center">
           <p className="text-gray-400 text-sm">
-            Page Not Found <span className="mx-2">•</span> 404
+            {getTitle(errorCode)} <span className="mx-2">•</span> {errorCode}
           </p>
         </div>
       </div>
