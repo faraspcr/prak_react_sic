@@ -11,12 +11,11 @@ export default function Sidebar() {
     { name: "Settings", icon: <FaCog />, to: "/settings" },
   ];
 
-  // Menu Error khusus
+  // Menu Error khusus - PATH sudah disesuaikan dengan App.jsx
   const errorMenus = [
     { name: "Error 400", icon: <FaExclamationTriangle />, to: "/error/400" },
     { name: "Error 401", icon: <FaExclamationCircle />, to: "/error/401" },
     { name: "Error 403", icon: <FaBan />, to: "/error/403" },
-    
   ];
   
   const menuClass = ({ isActive }) =>
@@ -41,7 +40,7 @@ export default function Sidebar() {
 
       {/* Menu */}
       <div className="mt-6 px-4">
-        <p className="text-xs font-bold text-orange-400 uppercase mb-4">
+        <p className="text-xs font-bold text-orange-400 uppercase mb-4 tracking-wider">
           MAIN MENU
         </p>
 
@@ -65,7 +64,7 @@ export default function Sidebar() {
 
       {/* Menu Error Section */}
       <div className="mt-6 px-4">
-        <p className="text-xs font-bold text-red-400 uppercase mb-4">
+        <p className="text-xs font-bold text-red-400 uppercase mb-4 tracking-wider">
           ERROR PAGES
         </p>
 
