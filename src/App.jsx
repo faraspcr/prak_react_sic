@@ -19,6 +19,10 @@ const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
 const Forgot = lazy(() => import('./pages/auth/Forgot'));
 
+// TAMBAHKAN INI
+const Produk = lazy(() => import('./pages/Produk'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+
 function App() {
   return (
     <Suspense fallback={<Loading />}>
@@ -28,6 +32,11 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          
+          {/* TAMBAHKAN 2 ROUTE INI */}
+          <Route path="/produk" element={<Produk />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          
           <Route path="/analytics" element={<Dashboard />} />
           <Route path="/messages" element={<Dashboard />} />
           <Route path="/settings" element={<Dashboard />} />

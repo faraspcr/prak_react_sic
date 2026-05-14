@@ -1,4 +1,4 @@
-import { FaHome, FaClipboardList, FaUsers, FaChartPie, FaEnvelope, FaCog, FaExclamationTriangle, FaExclamationCircle, FaBan } from "react-icons/fa";
+import { FaHome, FaClipboardList, FaUsers, FaChartPie, FaEnvelope, FaCog, FaExclamationTriangle, FaExclamationCircle, FaBan, FaBox } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -6,6 +6,7 @@ export default function Sidebar() {
     { name: "Dashboard", icon: <FaHome />, to: "/" },
     { name: "Orders", icon: <FaClipboardList />, to: "/orders" },
     { name: "Customers", icon: <FaUsers />, to: "/customers" },
+    { name: "Produk", icon: <FaBox />, to: "/produk" },
     { name: "Analytics", icon: <FaChartPie />, to: "/analytics" },
     { name: "Messages", icon: <FaEnvelope />, badge: "3", to: "/messages" },
     { name: "Settings", icon: <FaCog />, to: "/settings" },
