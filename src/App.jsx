@@ -6,6 +6,7 @@ import Loading from './components/Loading';
 // Layouts (import biasa karena selalu dipakai)
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
+import Components from './pages/Components';
 
 // Pages (diubah ke lazy loading - hanya di-load saat dibutuhkan)
 const Dashboard = lazy(() => import('./pages/Dashboard'));
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/components" element={<Components />} />
           
           {/* TAMBAHKAN 2 ROUTE INI */}
           <Route path="/produk" element={<Produk />} />

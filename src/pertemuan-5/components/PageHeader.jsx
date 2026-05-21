@@ -1,3 +1,4 @@
+
 export default function PageHeader() {
   return (
     <div id="pageheader-container" className="flex items-center justify-between p-4">
@@ -10,9 +11,9 @@ export default function PageHeader() {
         </div>
       </div>
       <div id="action-button">
-        <button id="add-button" className="bg-hijau text-white px-4 py-2 rounded-lg font-bold shadow-md">
+        <Button id="add-button" className="bg-hijau text-white px-4 py-2 rounded-lg font-bold shadow-md">
           + Add Button
-        </button>
+        </Button>
       </div>
     </div>
   );
