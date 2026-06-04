@@ -8,6 +8,7 @@ export default function Sidebar() {
     { name: "Customers", icon: <FaUsers />, to: "/customers" },
     { name: "Produk", icon: <FaBox />, to: "/produk" },
     { name: "Components", icon: <FaBox />, to: "/components" },
+    { name: "FiturXYZ", icon: <FaBox />, to: "/FiturXYZ" },
     { name: "Analytics", icon: <FaChartPie />, to: "/analytics" },
     { name: "Messages", icon: <FaEnvelope />, badge: "3", to: "/messages" },
     { name: "Settings", icon: <FaCog />, to: "/settings" },
