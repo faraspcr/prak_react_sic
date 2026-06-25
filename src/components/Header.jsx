@@ -1,10 +1,20 @@
-import { FaBell, FaSearch, FaSun, FaUserCircle } from "react-icons/fa";
+import { FaBell, FaSearch, FaSun, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Hapus session/token (sesuai dengan yang kamu pakai)
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // Arahkan ke halaman login
+    navigate('/login');
+  };
 
   return (
     <div className="flex justify-between items-center p-5 bg-gradient-to-r from-orange-50 to-pink-50 rounded-2xl shadow-lg border border-orange-100 transition-all duration-300">
@@ -43,14 +53,13 @@ export default function Header() {
           <FaSun />
         </div>
 
-        {/* Profile - Updated with local image */}
+        {/* Profile */}
         <div className="flex items-center space-x-3 border-l pl-4 border-orange-200">
           <div className="text-right">
             <span className="text-xs text-orange-500">Welcome back,</span>
             <p className="font-bold text-gray-700">Faras Zakia</p>
           </div>
           <div className="relative group">
-            {/* Ganti dengan gambar lokal dari folder public/img/loopy.png */}
             <img
               src="/img/loopy.jpg"
               alt="Faras Zakia"
@@ -63,6 +72,15 @@ export default function Header() {
             <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
           </div>
         </div>
+
+        {/* TOMBOL LOGOUT - TAMBAHKAN INI */}
+        <button
+          onClick={handleLogout}
+          className="flex items-center space-x-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full transition-all duration-200 shadow-md hover:shadow-lg"
+        >
+          <FaSignOutAlt />
+          <span className="text-sm font-medium">Logout</span>
+        </button>
 
       </div>
     </div>

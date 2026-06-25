@@ -20,9 +20,10 @@ const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
 const Forgot = lazy(() => import('./pages/auth/Forgot'));
 const FiturXYZ = lazy(() => import('./pages/FiturXYZ'));
-// TAMBAHKAN INI
 const Produk = lazy(() => import('./pages/Produk'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+// TAMBAHKAN INI - IMPORT NOTES
+const Notes = lazy(() => import('./pages/Notes'));
 
 function App() {
   return (
@@ -34,11 +35,11 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/components" element={<Components />} />
-          
-          {/* TAMBAHKAN 2 ROUTE INI */}
           <Route path="/produk" element={<Produk />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/FiturXYZ" element={<FiturXYZ />} />
+          {/* TAMBAHKAN ROUTE NOTES INI */}
+          <Route path="/notes" element={<Notes />} />
           <Route path="/analytics" element={<Dashboard />} />
           <Route path="/messages" element={<Dashboard />} />
           <Route path="/settings" element={<Dashboard />} />
