@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // ← TAMBAHKAN Link
 import axios from "axios";
 import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
@@ -113,6 +113,17 @@ export default function Login() {
           Login
         </button>
       </form>
+
+      {/* TAMBAHKAN INI - Link Register */}
+      <p className="text-center text-sm text-gray-600 mt-6">
+        Belum punya akun?{' '}
+        <Link 
+            to="/register" 
+            className="text-orange-500 hover:text-orange-600 font-semibold hover:underline transition"
+        >
+            Daftar Sekarang
+        </Link>
+      </p>
     </div>
   );
 }
